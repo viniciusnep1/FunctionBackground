@@ -1,0 +1,3 @@
+[submodule "teste-dti"]
+	path = teste-dti
+	url = https://github.com/viniciusnep1/teste-dti.git

@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="gateways\**" />
+    <Compile Remove="services\apontamento_tipo\**" />
+    <Compile Remove="services\area\**" />
+    <Compile Remove="services\cultura\**" />
+    <Compile Remove="services\fazenda\**" />
+    <Compile Remove="services\fazenda_tipo\**" />
+    <Compile Remove="services\maturidade_solo\**" />
+    <Compile Remove="services\safra\**" />
+    <Compile Remove="services\servico\**" />
+    <Compile Remove="services\servico_tipo\**" />
+    <Compile Remove="services\turno\**" />
+    <Compile Remove="services\unidade\**" />
+    <EmbeddedResource Remove="gateways\**" />
+    <EmbeddedResource Remove="services\apontamento_tipo\**" />
+    <EmbeddedResource Remove="services\area\**" />
+    <EmbeddedResource Remove="services\cultura\**" />
+    <EmbeddedResource Remove="services\fazenda\**" />
+    <EmbeddedResource Remove="services\fazenda_tipo\**" />
+    <EmbeddedResource Remove="services\maturidade_solo\**" />
+    <EmbeddedResource Remove="services\safra\**" />
+    <EmbeddedResource Remove="services\servico\**" />
+    <EmbeddedResource Remove="services\servico_tipo\**" />
+    <EmbeddedResource Remove="services\turno\**" />
+    <EmbeddedResource Remove="services\unidade\**" />
+    <None Remove="gateways\**" />
+    <None Remove="services\apontamento_tipo\**" />
+    <None Remove="services\area\**" />
+    <None Remove="services\cultura\**" />
+    <None Remove="services\fazenda\**" />
+    <None Remove="services\fazenda_tipo\**" />
+    <None Remove="services\maturidade_solo\**" />
+    <None Remove="services\safra\**" />
+    <None Remove="services\servico\**" />
+    <None Remove="services\servico_tipo\**" />
+    <None Remove="services\turno\**" />
+    <None Remove="services\unidade\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="services\SyncPushInteractor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="codecracker.CSharp" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\entities\entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="services\login\events\" />
+  </ItemGroup>
+
+</Project>
