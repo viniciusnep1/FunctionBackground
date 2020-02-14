@@ -9,9 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using seguranca;
+using security;
 using services.commands.command.seguranca;
-using web.Extensions;
 
 namespace Seguranca
 {

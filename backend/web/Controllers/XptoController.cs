@@ -1,9 +1,6 @@
 using core.seedwork;
 using Microsoft.AspNetCore.Mvc;
-using services.services.calculos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using services.services.calc;
 using System.Threading.Tasks;
 
 namespace web.Controllers
@@ -12,8 +9,8 @@ namespace web.Controllers
     [Route("api/[controller]")]
     public class XptoController : BaseController
     {
-        private readonly queryVolumesPlanejadosProduzidos query;
-        public XptoController(queryVolumesPlanejadosProduzidos query)
+        private readonly QueryVolumes query;
+        public XptoController(QueryVolumes query)
         {
             this.query = query;
         }
@@ -21,7 +18,7 @@ namespace web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProduzidosAsync()
         {
-            var result = await query.PopularGrafico();
+            var result = await query.FillCharts();
             return Ok(new Response(result));
         }
 

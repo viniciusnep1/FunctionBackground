@@ -1,7 +1,7 @@
 using System;
 using entities;
 using Microsoft.AspNetCore.Identity;
-using seguranca;
+using security;
 
 namespace gateways.repositories
 {

@@ -2,17 +2,16 @@ using System;
 using core.lib.extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using seguranca;
-using entities.logs;
-using entities.entidades;
 using entities.xpto;
+using security;
+using entities.entity;
 
 namespace entities
 {
     public class EFApplicationContext : IdentityDbContext<Usuario, Perfil, Guid, UsuarioClaim, UsuarioPerfil, UsuarioLogin, PerfilClaim, UsuarioToken>
     {
-        public virtual DbSet<VolumePlanejado> VolumePlanejadoSet { get; set; }
-        public virtual DbSet<VolumeProduzido> VolumeProduzidoSet { get; set; }
+        public virtual DbSet<Planned> VolumePlanejadoSet { get; set; }
+        public virtual DbSet<Produced> VolumeProduzidoSet { get; set; }
         public virtual DbSet<Xpto> XptoSet { get; set; }
 
         #region Entidades de Login do Sistema

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using core.seedwork;
 using System.Collections.Generic;
 
-namespace seguranca
+namespace security
 {
     [Table("perfil_modulo", Schema = Schema.SCHEMA_SEGURANCA)]
     public class PerfilModulo : EntidadeBase

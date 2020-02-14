@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 using entities;
 
-namespace seguranca
+namespace security
 {
     [Table("usuario_token", Schema = Schema.SCHEMA_SEGURANCA)]
     public class UsuarioToken : IdentityUserToken<Guid>

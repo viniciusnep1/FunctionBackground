@@ -19,209 +19,185 @@ namespace entities.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("entities.entidades.Xpto", b =>
+            modelBuilder.Entity("entities.entity.Xpto", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnName("ativo");
+                    b.Property<double>("TotalPlanned1")
+                        .HasColumnName("total_planned1");
 
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnName("data_atualizacao");
+                    b.Property<double>("TotalPlanned10")
+                        .HasColumnName("total_planned10");
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnName("data_criacao");
+                    b.Property<double>("TotalPlanned11")
+                        .HasColumnName("total_planned11");
 
-                    b.Property<DateTime?>("DataExclusao")
-                        .HasColumnName("data_exclusao");
+                    b.Property<double>("TotalPlanned2")
+                        .HasColumnName("total_planned2");
 
-                    b.Property<double>("TotalDadosVolPlanejado1")
-                        .HasColumnName("total_dados_vol_planejado1");
+                    b.Property<double>("TotalPlanned3")
+                        .HasColumnName("total_planned3");
 
-                    b.Property<double>("TotalDadosVolPlanejado10")
-                        .HasColumnName("total_dados_vol_planejado10");
+                    b.Property<double>("TotalPlanned4")
+                        .HasColumnName("total_planned4");
 
-                    b.Property<double>("TotalDadosVolPlanejado11")
-                        .HasColumnName("total_dados_vol_planejado11");
+                    b.Property<double>("TotalPlanned5")
+                        .HasColumnName("total_planned5");
 
-                    b.Property<double>("TotalDadosVolPlanejado2")
-                        .HasColumnName("total_dados_vol_planejado2");
+                    b.Property<double>("TotalPlanned6")
+                        .HasColumnName("total_planned6");
 
-                    b.Property<double>("TotalDadosVolPlanejado3")
-                        .HasColumnName("total_dados_vol_planejado3");
+                    b.Property<double>("TotalPlanned7")
+                        .HasColumnName("total_planned7");
 
-                    b.Property<double>("TotalDadosVolPlanejado4")
-                        .HasColumnName("total_dados_vol_planejado4");
+                    b.Property<double>("TotalPlanned8")
+                        .HasColumnName("total_planned8");
 
-                    b.Property<double>("TotalDadosVolPlanejado5")
-                        .HasColumnName("total_dados_vol_planejado5");
+                    b.Property<double>("TotalPlanned9")
+                        .HasColumnName("total_planned9");
 
-                    b.Property<double>("TotalDadosVolPlanejado6")
-                        .HasColumnName("total_dados_vol_planejado6");
+                    b.Property<double>("TotalProduced1")
+                        .HasColumnName("total_produced1");
 
-                    b.Property<double>("TotalDadosVolPlanejado7")
-                        .HasColumnName("total_dados_vol_planejado7");
+                    b.Property<double>("TotalProduced10")
+                        .HasColumnName("total_produced10");
 
-                    b.Property<double>("TotalDadosVolPlanejado8")
-                        .HasColumnName("total_dados_vol_planejado8");
+                    b.Property<double>("TotalProduced11")
+                        .HasColumnName("total_produced11");
 
-                    b.Property<double>("TotalDadosVolPlanejado9")
-                        .HasColumnName("total_dados_vol_planejado9");
+                    b.Property<double>("TotalProduced2")
+                        .HasColumnName("total_produced2");
 
-                    b.Property<double>("TotalDadosVolProduzido1")
-                        .HasColumnName("total_dados_vol_produzido1");
+                    b.Property<double>("TotalProduced3")
+                        .HasColumnName("total_produced3");
 
-                    b.Property<double>("TotalDadosVolProduzido10")
-                        .HasColumnName("total_dados_vol_produzido10");
+                    b.Property<double>("TotalProduced4")
+                        .HasColumnName("total_produced4");
 
-                    b.Property<double>("TotalDadosVolProduzido11")
-                        .HasColumnName("total_dados_vol_produzido11");
+                    b.Property<double>("TotalProduced5")
+                        .HasColumnName("total_produced5");
 
-                    b.Property<double>("TotalDadosVolProduzido2")
-                        .HasColumnName("total_dados_vol_produzido2");
+                    b.Property<double>("TotalProduced6")
+                        .HasColumnName("total_produced6");
 
-                    b.Property<double>("TotalDadosVolProduzido3")
-                        .HasColumnName("total_dados_vol_produzido3");
+                    b.Property<double>("TotalProduced7")
+                        .HasColumnName("total_produced7");
 
-                    b.Property<double>("TotalDadosVolProduzido4")
-                        .HasColumnName("total_dados_vol_produzido4");
+                    b.Property<double>("TotalProduced8")
+                        .HasColumnName("total_produced8");
 
-                    b.Property<double>("TotalDadosVolProduzido5")
-                        .HasColumnName("total_dados_vol_produzido5");
-
-                    b.Property<double>("TotalDadosVolProduzido6")
-                        .HasColumnName("total_dados_vol_produzido6");
-
-                    b.Property<double>("TotalDadosVolProduzido7")
-                        .HasColumnName("total_dados_vol_produzido7");
-
-                    b.Property<double>("TotalDadosVolProduzido8")
-                        .HasColumnName("total_dados_vol_produzido8");
-
-                    b.Property<double>("TotalDadosVolProduzido9")
-                        .HasColumnName("total_dados_vol_produzido9");
+                    b.Property<double>("TotalProduced9")
+                        .HasColumnName("total_produced9");
 
                     b.HasKey("Id")
                         .HasName("pk_xpto");
 
-                    b.ToTable("xpto","entidades");
+                    b.ToTable("xpto","entity");
                 });
 
-            modelBuilder.Entity("entities.xpto.VolumePlanejado", b =>
+            modelBuilder.Entity("entities.xpto.Planned", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<double>("DadosVolPlanejado1")
-                        .HasColumnName("dados_vol_planejado1");
+                    b.Property<double>("Planned1")
+                        .HasColumnName("planned1");
 
-                    b.Property<double>("DadosVolPlanejado10")
-                        .HasColumnName("dados_vol_planejado10");
+                    b.Property<double>("Planned10")
+                        .HasColumnName("planned10");
 
-                    b.Property<double>("DadosVolPlanejado11")
-                        .HasColumnName("dados_vol_planejado11");
+                    b.Property<double>("Planned11")
+                        .HasColumnName("planned11");
 
-                    b.Property<double>("DadosVolPlanejado2")
-                        .HasColumnName("dados_vol_planejado2");
+                    b.Property<double>("Planned2")
+                        .HasColumnName("planned2");
 
-                    b.Property<double>("DadosVolPlanejado3")
-                        .HasColumnName("dados_vol_planejado3");
+                    b.Property<double>("Planned3")
+                        .HasColumnName("planned3");
 
-                    b.Property<double>("DadosVolPlanejado4")
-                        .HasColumnName("dados_vol_planejado4");
+                    b.Property<double>("Planned4")
+                        .HasColumnName("planned4");
 
-                    b.Property<double>("DadosVolPlanejado5")
-                        .HasColumnName("dados_vol_planejado5");
+                    b.Property<double>("Planned5")
+                        .HasColumnName("planned5");
 
-                    b.Property<double>("DadosVolPlanejado6")
-                        .HasColumnName("dados_vol_planejado6");
+                    b.Property<double>("Planned6")
+                        .HasColumnName("planned6");
 
-                    b.Property<double>("DadosVolPlanejado7")
-                        .HasColumnName("dados_vol_planejado7");
+                    b.Property<double>("Planned7")
+                        .HasColumnName("planned7");
 
-                    b.Property<double>("DadosVolPlanejado8")
-                        .HasColumnName("dados_vol_planejado8");
+                    b.Property<double>("Planned8")
+                        .HasColumnName("planned8");
 
-                    b.Property<double>("DadosVolPlanejado9")
-                        .HasColumnName("dados_vol_planejado9");
+                    b.Property<double>("Planned9")
+                        .HasColumnName("planned9");
 
                     b.HasKey("Id")
-                        .HasName("pk_volume_planejado");
+                        .HasName("pk_vol_planned");
 
-                    b.ToTable("volume_planejado","xpto");
+                    b.ToTable("vol_planned","xpto");
                 });
 
-            modelBuilder.Entity("entities.xpto.VolumeProduzido", b =>
+            modelBuilder.Entity("entities.xpto.Produced", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<double>("DadosVolProduzido1")
-                        .HasColumnName("dados_vol_produzido1");
+                    b.Property<double>("Produced1")
+                        .HasColumnName("produced1");
 
-                    b.Property<double>("DadosVolProduzido10")
-                        .HasColumnName("dados_vol_produzido10");
+                    b.Property<double>("Produced10")
+                        .HasColumnName("produced10");
 
-                    b.Property<double>("DadosVolProduzido11")
-                        .HasColumnName("dados_vol_produzido11");
+                    b.Property<double>("Produced11")
+                        .HasColumnName("produced11");
 
-                    b.Property<double>("DadosVolProduzido2")
-                        .HasColumnName("dados_vol_produzido2");
+                    b.Property<double>("Produced2")
+                        .HasColumnName("produced2");
 
-                    b.Property<double>("DadosVolProduzido3")
-                        .HasColumnName("dados_vol_produzido3");
+                    b.Property<double>("Produced3")
+                        .HasColumnName("produced3");
 
-                    b.Property<double>("DadosVolProduzido4")
-                        .HasColumnName("dados_vol_produzido4");
+                    b.Property<double>("Produced4")
+                        .HasColumnName("produced4");
 
-                    b.Property<double>("DadosVolProduzido5")
-                        .HasColumnName("dados_vol_produzido5");
+                    b.Property<double>("Produced5")
+                        .HasColumnName("produced5");
 
-                    b.Property<double>("DadosVolProduzido6")
-                        .HasColumnName("dados_vol_produzido6");
+                    b.Property<double>("Produced6")
+                        .HasColumnName("produced6");
 
-                    b.Property<double>("DadosVolProduzido7")
-                        .HasColumnName("dados_vol_produzido7");
+                    b.Property<double>("Produced7")
+                        .HasColumnName("produced7");
 
-                    b.Property<double>("DadosVolProduzido8")
-                        .HasColumnName("dados_vol_produzido8");
+                    b.Property<double>("Produced8")
+                        .HasColumnName("produced8");
 
-                    b.Property<double>("DadosVolProduzido9")
-                        .HasColumnName("dados_vol_produzido9");
+                    b.Property<double>("Produced9")
+                        .HasColumnName("produced9");
 
                     b.Property<double>("Total")
                         .HasColumnName("total");
 
                     b.HasKey("Id")
-                        .HasName("pk_volume_produzido");
+                        .HasName("pk_vol_produced");
 
-                    b.ToTable("volume_produzido","xpto");
+                    b.ToTable("vol_produced","xpto");
                 });
 
-            modelBuilder.Entity("seguranca.Modulo", b =>
+            modelBuilder.Entity("security.Modulo", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnName("ativo");
-
                     b.Property<string>("Codigo")
                         .HasColumnName("codigo");
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnName("data_atualizacao");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnName("data_criacao");
-
-                    b.Property<DateTime?>("DataExclusao")
-                        .HasColumnName("data_exclusao");
 
                     b.Property<bool>("Desativado")
                         .HasColumnName("desativado");
@@ -232,10 +208,10 @@ namespace entities.Migrations
                     b.HasKey("Id")
                         .HasName("pk_modulo");
 
-                    b.ToTable("modulo","seguranca");
+                    b.ToTable("modulo","security");
                 });
 
-            modelBuilder.Entity("seguranca.Perfil", b =>
+            modelBuilder.Entity("security.Perfil", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,10 +245,10 @@ namespace entities.Migrations
                         .IsUnique()
                         .HasName("role_name_index");
 
-                    b.ToTable("aspnetroles","seguranca");
+                    b.ToTable("aspnetroles","security");
                 });
 
-            modelBuilder.Entity("seguranca.PerfilClaim", b =>
+            modelBuilder.Entity("security.PerfilClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -293,26 +269,14 @@ namespace entities.Migrations
                     b.HasIndex("RoleId")
                         .HasName("ix_aspnetroleclaims_role_id");
 
-                    b.ToTable("aspnetroleclaims","seguranca");
+                    b.ToTable("aspnetroleclaims","security");
                 });
 
-            modelBuilder.Entity("seguranca.PerfilModulo", b =>
+            modelBuilder.Entity("security.PerfilModulo", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnName("ativo");
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnName("data_atualizacao");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnName("data_criacao");
-
-                    b.Property<DateTime?>("DataExclusao")
-                        .HasColumnName("data_exclusao");
 
                     b.Property<bool>("Desativado")
                         .HasColumnName("desativado");
@@ -332,26 +296,14 @@ namespace entities.Migrations
                     b.HasIndex("PerfilId")
                         .HasName("ix_perfil_modulo_perfil_id");
 
-                    b.ToTable("perfil_modulo","seguranca");
+                    b.ToTable("perfil_modulo","security");
                 });
 
-            modelBuilder.Entity("seguranca.PerfilModuloPermissao", b =>
+            modelBuilder.Entity("security.PerfilModuloPermissao", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnName("ativo");
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnName("data_atualizacao");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnName("data_criacao");
-
-                    b.Property<DateTime?>("DataExclusao")
-                        .HasColumnName("data_exclusao");
 
                     b.Property<bool>("Desativado")
                         .HasColumnName("desativado");
@@ -371,29 +323,17 @@ namespace entities.Migrations
                     b.HasIndex("PermissaoId")
                         .HasName("ix_modulo_permissao_permissao_id");
 
-                    b.ToTable("modulo_permissao","seguranca");
+                    b.ToTable("modulo_permissao","security");
                 });
 
-            modelBuilder.Entity("seguranca.Permissao", b =>
+            modelBuilder.Entity("security.Permissao", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnName("ativo");
-
                     b.Property<string>("Codigo")
                         .HasColumnName("codigo");
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnName("data_atualizacao");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnName("data_criacao");
-
-                    b.Property<DateTime?>("DataExclusao")
-                        .HasColumnName("data_exclusao");
 
                     b.Property<bool>("Desativado")
                         .HasColumnName("desativado");
@@ -404,10 +344,10 @@ namespace entities.Migrations
                     b.HasKey("Id")
                         .HasName("pk_permissao");
 
-                    b.ToTable("permissao","seguranca");
+                    b.ToTable("permissao","security");
                 });
 
-            modelBuilder.Entity("seguranca.Usuario", b =>
+            modelBuilder.Entity("security.Usuario", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -488,10 +428,10 @@ namespace entities.Migrations
                         .IsUnique()
                         .HasName("user_name_index");
 
-                    b.ToTable("aspnetusers","seguranca");
+                    b.ToTable("aspnetusers","security");
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioClaim", b =>
+            modelBuilder.Entity("security.UsuarioClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -512,10 +452,10 @@ namespace entities.Migrations
                     b.HasIndex("UserId")
                         .HasName("ix_aspnetuserclaims_user_id");
 
-                    b.ToTable("aspnetuserclaims","seguranca");
+                    b.ToTable("aspnetuserclaims","security");
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioLogin", b =>
+            modelBuilder.Entity("security.UsuarioLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnName("login_provider");
@@ -535,10 +475,10 @@ namespace entities.Migrations
                     b.HasIndex("UserId")
                         .HasName("ix_aspnetuserlogins_user_id");
 
-                    b.ToTable("aspnetuserlogins","seguranca");
+                    b.ToTable("aspnetuserlogins","security");
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioPerfil", b =>
+            modelBuilder.Entity("security.UsuarioPerfil", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnName("user_id");
@@ -552,10 +492,10 @@ namespace entities.Migrations
                     b.HasIndex("RoleId")
                         .HasName("ix_aspnetuserroles_role_id");
 
-                    b.ToTable("aspnetuserroles","seguranca");
+                    b.ToTable("aspnetuserroles","security");
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioToken", b =>
+            modelBuilder.Entity("security.UsuarioToken", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnName("user_id");
@@ -572,84 +512,84 @@ namespace entities.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name")
                         .HasName("pk_aspnetusertokens");
 
-                    b.ToTable("aspnetusertokens","seguranca");
+                    b.ToTable("aspnetusertokens","security");
                 });
 
-            modelBuilder.Entity("seguranca.PerfilClaim", b =>
+            modelBuilder.Entity("security.PerfilClaim", b =>
                 {
-                    b.HasOne("seguranca.Perfil")
+                    b.HasOne("security.Perfil")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .HasConstraintName("fk_aspnetroleclaims_aspnetroles_role_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.PerfilModulo", b =>
+            modelBuilder.Entity("security.PerfilModulo", b =>
                 {
-                    b.HasOne("seguranca.Modulo", "Modulo")
+                    b.HasOne("security.Modulo", "Modulo")
                         .WithMany()
                         .HasForeignKey("ModuloId")
                         .HasConstraintName("fk_perfil_modulo_modulo_modulo_id")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("seguranca.Perfil", "Perfil")
+                    b.HasOne("security.Perfil", "Perfil")
                         .WithMany("Modulos")
                         .HasForeignKey("PerfilId")
                         .HasConstraintName("fk_perfil_modulo_aspnetroles_perfil_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.PerfilModuloPermissao", b =>
+            modelBuilder.Entity("security.PerfilModuloPermissao", b =>
                 {
-                    b.HasOne("seguranca.PerfilModulo", "PerfilModulo")
+                    b.HasOne("security.PerfilModulo", "PerfilModulo")
                         .WithMany("Permissoes")
                         .HasForeignKey("PerfilModuloId")
                         .HasConstraintName("fk_modulo_permissao_perfil_modulo_perfil_modulo_id")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("seguranca.Permissao", "Permissao")
+                    b.HasOne("security.Permissao", "Permissao")
                         .WithMany()
                         .HasForeignKey("PermissaoId")
                         .HasConstraintName("fk_modulo_permissao_permissao_permissao_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioClaim", b =>
+            modelBuilder.Entity("security.UsuarioClaim", b =>
                 {
-                    b.HasOne("seguranca.Usuario")
+                    b.HasOne("security.Usuario")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_aspnetuserclaims_aspnetusers_user_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioLogin", b =>
+            modelBuilder.Entity("security.UsuarioLogin", b =>
                 {
-                    b.HasOne("seguranca.Usuario")
+                    b.HasOne("security.Usuario")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_aspnetuserlogins_aspnetusers_user_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioPerfil", b =>
+            modelBuilder.Entity("security.UsuarioPerfil", b =>
                 {
-                    b.HasOne("seguranca.Perfil", "Role")
+                    b.HasOne("security.Perfil", "Role")
                         .WithMany("Papeis")
                         .HasForeignKey("RoleId")
                         .HasConstraintName("fk_aspnetuserroles_aspnetroles_role_id")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("seguranca.Usuario", "User")
+                    b.HasOne("security.Usuario", "User")
                         .WithMany("Papeis")
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_aspnetuserroles_aspnetusers_user_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("seguranca.UsuarioToken", b =>
+            modelBuilder.Entity("security.UsuarioToken", b =>
                 {
-                    b.HasOne("seguranca.Usuario")
+                    b.HasOne("security.Usuario")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_aspnetusertokens_aspnetusers_user_id")

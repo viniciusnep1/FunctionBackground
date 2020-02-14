@@ -4,7 +4,7 @@ using System.Text;
 
 namespace services.services.calculos.viewModel
 {
-    public class SomatoriosViewModel
+    public class SumViewModel
     {
         public double Planejados { get; set; }
         public double Produzidos { get; set; }

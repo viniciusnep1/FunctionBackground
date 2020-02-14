@@ -1,36 +1,30 @@
 using Dapper;
-using entities.entidades;
+using entities.entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using services.repositories;
 using services.services.calculos.viewModel;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace services.services.calculos
+namespace services.services.calc
 {
-    public class queryVolumesPlanejadosProduzidos
+    public class QueryVolumes
     {
         private readonly XptoRepository repository;
         private readonly IConfiguration config;
 
 
-        public queryVolumesPlanejadosProduzidos(IConfiguration config, XptoRepository repository)
+        public QueryVolumes(IConfiguration config, XptoRepository repository)
         {
             this.config = config;
             this.repository = repository;
         }
 
-        private static Xpto SetarValor(string nome, Xpto obj)
-        {
-
-            return obj;
-        }
-
-        private async Task<Xpto> AtualizarValores(Xpto xptoEntity, string propriedade, string parametroQuery, string coluna)
+        private async Task<Xpto> UpdateValues(Xpto xptoEntity, string propriedade, string paramQuery, string column)
         {
             using (NpgsqlConnection conexao = new NpgsqlConnection(config.GetConnectionString("DefaultConnection")))
             {
@@ -39,7 +33,7 @@ namespace services.services.calculos
                 for (int i = 1; i <= 11; i++)
                 {
                     var propertyName = $"{propriedade}{i}";
-                    var query = $"SELECT SUM({parametroQuery}{i}) FROM xpto.{coluna}";
+                    var query = $"SELECT SUM({paramQuery}{i}) FROM xpto.{column}";
                     var somaQuery = await conexao.QueryFirstOrDefaultAsync<dynamic>(query);
 
                     var prop = xptoEntity.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
@@ -54,7 +48,7 @@ namespace services.services.calculos
             return await Task.FromResult(xptoEntity);
         }
 
-        public async Task<Xpto> Calcular()
+        public async Task<Xpto> InserValues()
         {
             var xptoEntity = await repository.GetAll().FirstOrDefaultAsync();
             if (xptoEntity == null)
@@ -65,33 +59,41 @@ namespace services.services.calculos
                 await repository.CommitAsync();
             }
 
-            xptoEntity = await AtualizarValores(xptoEntity, "TotalDadosVolProduzido", "dados_vol_produzido", "volume_produzido");
-            xptoEntity = await AtualizarValores(xptoEntity, "TotalDadosVolPlanejado", "dados_vol_planejado", "volume_planejado");
+            xptoEntity = await UpdateValues(xptoEntity, "TotalProduced", "produced", "vol_produced");
+            xptoEntity = await UpdateValues(xptoEntity, "TotalPlanned", "planned", "vol_planned");
 
             repository.Update(xptoEntity);
-            await repository.CommitAsync();
+            try
+            {
+                await repository.CommitAsync();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             return await Task.FromResult(xptoEntity);
         }
 
-        public async Task<List<SomatoriosViewModel>> PopularGrafico()
+        public async Task<List<SumViewModel>> FillCharts()
         {
             var xptoEntity = await repository.GetAll().FirstOrDefaultAsync();
 
-            var lista = new List<SomatoriosViewModel>();
+            var list = new List<SumViewModel>();
 
             for (int i = 1; i <= 11; i++)
             {
-                var modelo = new SomatoriosViewModel();
+                var model = new SumViewModel();
 
-                var obj = GetPropValue(xptoEntity, $"TotalDadosVolPlanejado{i}");
-                modelo.Planejados = (double)obj;
-                obj = GetPropValue(xptoEntity, $"TotalDadosVolProduzido{i}");
-                modelo.Produzidos = (double)obj;
+                var total = GetPropValue(xptoEntity, $"TotalPlanned{i}");
+                model.Planejados = (double)total;
+                total = GetPropValue(xptoEntity, $"TotalProduced{i}");
+                model.Produzidos = (double)total;
 
-                lista.Add(modelo);
+                list.Add(model);
             }
-            return await Task.FromResult(lista);
+            return await Task.FromResult(list);
         }
 
         public static object GetPropValue(object src, string propName)

@@ -13,17 +13,13 @@ namespace core.seedwork
         T Id { get; set; }
     }
 
-    public abstract class EntidadeBase<T> : IEntidadeBase<T>
+    public abstract class BaseEntity<T> : IEntidadeBase<T>
     {
         [Key]
         [Required]
         public T Id { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public DateTime? DataAtualizacao { get; set; }
-        public DateTime? DataExclusao { get; set; }
-        public bool Ativo { get; set; }
 
-        public static bool operator == (EntidadeBase<T> left, EntidadeBase<T> right)
+        public static bool operator == (BaseEntity<T> left, BaseEntity<T> right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -31,14 +27,14 @@ namespace core.seedwork
                 return left.Equals(right);
         }
 
-        public static bool operator !=(EntidadeBase<T> left, EntidadeBase<T> right)
+        public static bool operator !=(BaseEntity<T> left, BaseEntity<T> right)
         {
             return !(left == right);
         }
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is EntidadeBase<T>))
+            if (obj == null || !(obj is BaseEntity<T>))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -47,7 +43,7 @@ namespace core.seedwork
             if (this.GetType() != obj.GetType())
                 return false;
 
-            var item = (EntidadeBase<T>)obj;
+            var item = (BaseEntity<T>)obj;
 
              return item.Id.Equals(this.Id);
         }
@@ -63,7 +59,7 @@ namespace core.seedwork
         }
     }
 
-    public abstract class EntidadeBase : EntidadeBase<Guid>
+    public abstract class EntidadeBase : BaseEntity<Guid>
     {
         /// <summary>
         /// Desativado

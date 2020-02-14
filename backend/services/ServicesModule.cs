@@ -1,11 +1,9 @@
 using Autofac;
 using services.repositories;
 using core.events;
-using MediatR;
-using core.seedwork;
 using core.bus;
-using services.services.calculos;
 using hateoas.infrastructure;
+using services.services.calc;
 
 namespace services
 {
@@ -24,7 +22,7 @@ namespace services
             containerBuilder.RegisterType<EventStoreRepository>().As<IEventStore>().SingleInstance();
 
             //Queries
-            containerBuilder.RegisterType<queryVolumesPlanejadosProduzidos>();
+            containerBuilder.RegisterType<QueryVolumes>();
 
             //Commands
 

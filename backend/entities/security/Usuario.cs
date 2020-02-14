@@ -2,21 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using entities;
+using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
+using entities;
+using core.seedwork;
+using core.seedwork.interfaces;
 
-namespace seguranca
+namespace security
 {
-    [Table("perfil", Schema = Schema.SCHEMA_SEGURANCA)]
-    public partial class Perfil : IdentityRole<Guid>
+    [Table("usuario", Schema = Schema.SCHEMA_SEGURANCA)]
+    public partial class Usuario : IdentityUser<Guid>, IEntidadeBase<Guid>
     {
         [StringLength(40)]
-        public override string Name
+        [Required]
+        public string Nome { get; set; }
+
+        [StringLength(40)]
+        public override string Email
         {
-            get => base.Name;
-            set => base.Name = value;
+            get => base.Email;
+            set => base.Email = value;
         }
+
+        [StringLength(14)]
+        public string CpjCnpj { get; set; }
 
         public DateTime DataCriacao { get; set; }
 
@@ -27,12 +37,10 @@ namespace seguranca
         [JsonIgnore]
         public virtual List<UsuarioPerfil> Papeis { get; set; } = new List<UsuarioPerfil>();
 
-        [JsonIgnore]
-        public virtual List<PerfilModulo> Modulos { get; set; } = new List<PerfilModulo>();
 
-        public Perfil()
+        public Usuario()
         {
             Id = Guid.NewGuid();
         }
     }
-}
+} 

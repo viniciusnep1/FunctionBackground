@@ -4,51 +4,47 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace entities.Migrations
 {
-    public partial class Initial : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "entidades");
+                name: "entity");
 
             migrationBuilder.EnsureSchema(
                 name: "xpto");
 
             migrationBuilder.EnsureSchema(
-                name: "seguranca");
+                name: "security");
 
             migrationBuilder.CreateTable(
                 name: "xpto",
-                schema: "entidades",
+                schema: "entity",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    data_criacao = table.Column<DateTime>(nullable: false),
-                    data_atualizacao = table.Column<DateTime>(nullable: true),
-                    data_exclusao = table.Column<DateTime>(nullable: true),
-                    ativo = table.Column<bool>(nullable: false),
-                    total_dados_vol_planejado1 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido1 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado2 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido2 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado3 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido3 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado4 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido4 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado5 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido5 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado6 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido6 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado7 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido7 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado8 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido8 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado9 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido9 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado10 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido10 = table.Column<double>(nullable: false),
-                    total_dados_vol_planejado11 = table.Column<double>(nullable: false),
-                    total_dados_vol_produzido11 = table.Column<double>(nullable: false)
+                    total_planned1 = table.Column<double>(nullable: false),
+                    total_produced1 = table.Column<double>(nullable: false),
+                    total_planned2 = table.Column<double>(nullable: false),
+                    total_produced2 = table.Column<double>(nullable: false),
+                    total_planned3 = table.Column<double>(nullable: false),
+                    total_produced3 = table.Column<double>(nullable: false),
+                    total_planned4 = table.Column<double>(nullable: false),
+                    total_produced4 = table.Column<double>(nullable: false),
+                    total_planned5 = table.Column<double>(nullable: false),
+                    total_produced5 = table.Column<double>(nullable: false),
+                    total_planned6 = table.Column<double>(nullable: false),
+                    total_produced6 = table.Column<double>(nullable: false),
+                    total_planned7 = table.Column<double>(nullable: false),
+                    total_produced7 = table.Column<double>(nullable: false),
+                    total_planned8 = table.Column<double>(nullable: false),
+                    total_produced8 = table.Column<double>(nullable: false),
+                    total_planned9 = table.Column<double>(nullable: false),
+                    total_produced9 = table.Column<double>(nullable: false),
+                    total_planned10 = table.Column<double>(nullable: false),
+                    total_produced10 = table.Column<double>(nullable: false),
+                    total_planned11 = table.Column<double>(nullable: false),
+                    total_produced11 = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,7 +53,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetroles",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
@@ -75,7 +71,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetusers",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
@@ -106,14 +102,10 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "modulo",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    data_criacao = table.Column<DateTime>(nullable: false),
-                    data_atualizacao = table.Column<DateTime>(nullable: true),
-                    data_exclusao = table.Column<DateTime>(nullable: true),
-                    ativo = table.Column<bool>(nullable: false),
                     desativado = table.Column<bool>(nullable: false),
                     nome = table.Column<string>(nullable: true),
                     codigo = table.Column<string>(nullable: true)
@@ -125,14 +117,10 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "permissao",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    data_criacao = table.Column<DateTime>(nullable: false),
-                    data_atualizacao = table.Column<DateTime>(nullable: true),
-                    data_exclusao = table.Column<DateTime>(nullable: true),
-                    ativo = table.Column<bool>(nullable: false),
                     desativado = table.Column<bool>(nullable: false),
                     nome = table.Column<string>(nullable: true),
                     codigo = table.Column<string>(nullable: true)
@@ -143,55 +131,55 @@ namespace entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "volume_planejado",
+                name: "vol_planned",
                 schema: "xpto",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    dados_vol_planejado1 = table.Column<double>(nullable: false),
-                    dados_vol_planejado2 = table.Column<double>(nullable: false),
-                    dados_vol_planejado3 = table.Column<double>(nullable: false),
-                    dados_vol_planejado4 = table.Column<double>(nullable: false),
-                    dados_vol_planejado5 = table.Column<double>(nullable: false),
-                    dados_vol_planejado6 = table.Column<double>(nullable: false),
-                    dados_vol_planejado7 = table.Column<double>(nullable: false),
-                    dados_vol_planejado8 = table.Column<double>(nullable: false),
-                    dados_vol_planejado9 = table.Column<double>(nullable: false),
-                    dados_vol_planejado10 = table.Column<double>(nullable: false),
-                    dados_vol_planejado11 = table.Column<double>(nullable: false)
+                    planned1 = table.Column<double>(nullable: false),
+                    planned2 = table.Column<double>(nullable: false),
+                    planned3 = table.Column<double>(nullable: false),
+                    planned4 = table.Column<double>(nullable: false),
+                    planned5 = table.Column<double>(nullable: false),
+                    planned6 = table.Column<double>(nullable: false),
+                    planned7 = table.Column<double>(nullable: false),
+                    planned8 = table.Column<double>(nullable: false),
+                    planned9 = table.Column<double>(nullable: false),
+                    planned10 = table.Column<double>(nullable: false),
+                    planned11 = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_volume_planejado", x => x.id);
+                    table.PrimaryKey("pk_vol_planned", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "volume_produzido",
+                name: "vol_produced",
                 schema: "xpto",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    dados_vol_produzido1 = table.Column<double>(nullable: false),
-                    dados_vol_produzido2 = table.Column<double>(nullable: false),
-                    dados_vol_produzido3 = table.Column<double>(nullable: false),
-                    dados_vol_produzido4 = table.Column<double>(nullable: false),
-                    dados_vol_produzido5 = table.Column<double>(nullable: false),
-                    dados_vol_produzido6 = table.Column<double>(nullable: false),
-                    dados_vol_produzido7 = table.Column<double>(nullable: false),
-                    dados_vol_produzido8 = table.Column<double>(nullable: false),
-                    dados_vol_produzido9 = table.Column<double>(nullable: false),
-                    dados_vol_produzido10 = table.Column<double>(nullable: false),
-                    dados_vol_produzido11 = table.Column<double>(nullable: false),
+                    produced1 = table.Column<double>(nullable: false),
+                    produced2 = table.Column<double>(nullable: false),
+                    produced3 = table.Column<double>(nullable: false),
+                    produced4 = table.Column<double>(nullable: false),
+                    produced5 = table.Column<double>(nullable: false),
+                    produced6 = table.Column<double>(nullable: false),
+                    produced7 = table.Column<double>(nullable: false),
+                    produced8 = table.Column<double>(nullable: false),
+                    produced9 = table.Column<double>(nullable: false),
+                    produced10 = table.Column<double>(nullable: false),
+                    produced11 = table.Column<double>(nullable: false),
                     total = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_volume_produzido", x => x.id);
+                    table.PrimaryKey("pk_vol_produced", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "aspnetroleclaims",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
@@ -206,7 +194,7 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_aspnetroleclaims_aspnetroles_role_id",
                         column: x => x.role_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetroles",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -214,7 +202,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetuserclaims",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
@@ -229,7 +217,7 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_aspnetuserclaims_aspnetusers_user_id",
                         column: x => x.user_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetusers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -237,7 +225,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetuserlogins",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     login_provider = table.Column<string>(nullable: false),
@@ -251,7 +239,7 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_aspnetuserlogins_aspnetusers_user_id",
                         column: x => x.user_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetusers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -259,7 +247,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetuserroles",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     user_id = table.Column<Guid>(nullable: false),
@@ -271,14 +259,14 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_aspnetuserroles_aspnetroles_role_id",
                         column: x => x.role_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetroles",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "fk_aspnetuserroles_aspnetusers_user_id",
                         column: x => x.user_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetusers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -286,7 +274,7 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "aspnetusertokens",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     user_id = table.Column<Guid>(nullable: false),
@@ -300,7 +288,7 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_aspnetusertokens_aspnetusers_user_id",
                         column: x => x.user_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetusers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -308,14 +296,10 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "perfil_modulo",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    data_criacao = table.Column<DateTime>(nullable: false),
-                    data_atualizacao = table.Column<DateTime>(nullable: true),
-                    data_exclusao = table.Column<DateTime>(nullable: true),
-                    ativo = table.Column<bool>(nullable: false),
                     desativado = table.Column<bool>(nullable: false),
                     perfil_id = table.Column<Guid>(nullable: false),
                     modulo_id = table.Column<Guid>(nullable: false)
@@ -326,14 +310,14 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_perfil_modulo_modulo_modulo_id",
                         column: x => x.modulo_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "modulo",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "fk_perfil_modulo_aspnetroles_perfil_id",
                         column: x => x.perfil_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "aspnetroles",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -341,14 +325,10 @@ namespace entities.Migrations
 
             migrationBuilder.CreateTable(
                 name: "modulo_permissao",
-                schema: "seguranca",
+                schema: "security",
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    data_criacao = table.Column<DateTime>(nullable: false),
-                    data_atualizacao = table.Column<DateTime>(nullable: true),
-                    data_exclusao = table.Column<DateTime>(nullable: true),
-                    ativo = table.Column<bool>(nullable: false),
                     desativado = table.Column<bool>(nullable: false),
                     perfil_modulo_id = table.Column<Guid>(nullable: false),
                     permissao_id = table.Column<Guid>(nullable: false)
@@ -359,14 +339,14 @@ namespace entities.Migrations
                     table.ForeignKey(
                         name: "fk_modulo_permissao_perfil_modulo_perfil_modulo_id",
                         column: x => x.perfil_modulo_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "perfil_modulo",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "fk_modulo_permissao_permissao_permissao_id",
                         column: x => x.permissao_id,
-                        principalSchema: "seguranca",
+                        principalSchema: "security",
                         principalTable: "permissao",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -374,69 +354,69 @@ namespace entities.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "ix_aspnetroleclaims_role_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetroleclaims",
                 column: "role_id");
 
             migrationBuilder.CreateIndex(
                 name: "role_name_index",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetroles",
                 column: "normalized_name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "ix_aspnetuserclaims_user_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetuserclaims",
                 column: "user_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_aspnetuserlogins_user_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetuserlogins",
                 column: "user_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_aspnetuserroles_role_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetuserroles",
                 column: "role_id");
 
             migrationBuilder.CreateIndex(
                 name: "email_index",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetusers",
                 column: "normalized_email");
 
             migrationBuilder.CreateIndex(
                 name: "user_name_index",
-                schema: "seguranca",
+                schema: "security",
                 table: "aspnetusers",
                 column: "normalized_user_name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "ix_modulo_permissao_perfil_modulo_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "modulo_permissao",
                 column: "perfil_modulo_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_modulo_permissao_permissao_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "modulo_permissao",
                 column: "permissao_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_perfil_modulo_modulo_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "perfil_modulo",
                 column: "modulo_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_perfil_modulo_perfil_id",
-                schema: "seguranca",
+                schema: "security",
                 table: "perfil_modulo",
                 column: "perfil_id");
         }
@@ -445,59 +425,59 @@ namespace entities.Migrations
         {
             migrationBuilder.DropTable(
                 name: "xpto",
-                schema: "entidades");
+                schema: "entity");
 
             migrationBuilder.DropTable(
                 name: "aspnetroleclaims",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "aspnetuserclaims",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "aspnetuserlogins",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "aspnetuserroles",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "aspnetusertokens",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "modulo_permissao",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
-                name: "volume_planejado",
+                name: "vol_planned",
                 schema: "xpto");
 
             migrationBuilder.DropTable(
-                name: "volume_produzido",
+                name: "vol_produced",
                 schema: "xpto");
 
             migrationBuilder.DropTable(
                 name: "aspnetusers",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "perfil_modulo",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "permissao",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "modulo",
-                schema: "seguranca");
+                schema: "security");
 
             migrationBuilder.DropTable(
                 name: "aspnetroles",
-                schema: "seguranca");
+                schema: "security");
         }
     }
 }

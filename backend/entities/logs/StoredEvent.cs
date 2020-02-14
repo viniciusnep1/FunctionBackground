@@ -8,7 +8,7 @@ namespace entities.logs
     /// Armazena os eventos
     /// </summary>
     [Table("stored_event", Schema = Schema.SCHEMA_LOGS)]
-    public class StoredEvent : EntidadeBase<Guid>
+    public class StoredEvent : BaseEntity<Guid>
     {
         #region Properties
 

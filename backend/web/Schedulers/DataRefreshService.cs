@@ -1,3 +1,4 @@
+using services.services.calc;
 using services.services.calculos;
 using System;
 using System.Threading;
@@ -7,9 +8,9 @@ namespace IHostedServiceSample
 {
     public class DataRefreshService : HostedService
     {
-        private readonly queryVolumesPlanejadosProduzidos query;
+        private readonly QueryVolumes query;
 
-        public DataRefreshService(queryVolumesPlanejadosProduzidos query)
+        public DataRefreshService(QueryVolumes query)
         {
             this.query=query;
         }
@@ -18,7 +19,7 @@ namespace IHostedServiceSample
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                await query.Calcular();
+                await query.InserValues();
                 await Task.Delay(TimeSpan.FromMinutes(30), cancellationToken);
             }
         }

@@ -1,9 +1,7 @@
 using core.seedwork;
 using entities;
-using entities.entidades;
+using entities.entity;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace services.repositories
 {

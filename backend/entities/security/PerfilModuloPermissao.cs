@@ -5,7 +5,7 @@ using entities;
 using Newtonsoft.Json;
 using core.seedwork;
 
-namespace seguranca
+namespace security
 {
     [Table("modulo_permissao", Schema = Schema.SCHEMA_SEGURANCA)]
     public class PerfilModuloPermissao : EntidadeBase

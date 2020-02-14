@@ -4,7 +4,6 @@ using core.settings;
 using entities;
 using gateways.repositories;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
@@ -19,7 +18,6 @@ using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Npgsql;
-using seguranca;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Globalization;
@@ -33,9 +31,9 @@ using MediatR;
 using core.seedwork;
 using core.seedwork.interfaces;
 using hateoas.formatters;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Hosting;
 using IHostedServiceSample;
+using security;
 
 namespace web
 {

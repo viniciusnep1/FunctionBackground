@@ -1,9 +1,6 @@
 using core.seedwork;
 using Microsoft.AspNetCore.Mvc;
-using services.services.calculos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using services.services.calc;
 using System.Threading.Tasks;
 
 namespace web.Controllers
@@ -12,16 +9,16 @@ namespace web.Controllers
     [Route("api/[controller]")]
     public class CalculosController : BaseController
     {
-        private readonly queryVolumesPlanejadosProduzidos query;
-        public CalculosController( queryVolumesPlanejadosProduzidos query)
+        private readonly QueryVolumes query;
+        public CalculosController(QueryVolumes query)
         {
             this.query = query;
         }
 
-        [HttpGet()]
-        public async Task<IActionResult> GetProduzidosAsync()
+        [HttpGet]
+        public async Task<IActionResult> GetAsync()
         {
-            var result = await query.Calcular();
+            var result = await query.InserValues();
             return Ok(new Response(result));
         }
 
