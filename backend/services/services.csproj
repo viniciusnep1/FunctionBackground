@@ -55,8 +55,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="DotNetty.Common" Version="0.6.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
@@ -68,6 +70,7 @@
 
   <ItemGroup>
     <Folder Include="services\login\events\" />
+    <Folder Include="services\schedules\" />
   </ItemGroup>
 
 </Project>

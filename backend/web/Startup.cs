@@ -34,6 +34,8 @@ using core.seedwork;
 using core.seedwork.interfaces;
 using hateoas.formatters;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Hosting;
+using IHostedServiceSample;
 
 namespace web
 {
@@ -78,6 +80,7 @@ namespace web
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(o => o.OutputFormatters.Add(new JsonHateoasFormatter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<IHostedService, DataRefreshService>();
 
             services.AddDbContextPool<EFApplicationContext>(optionsAction =>
             {
@@ -234,7 +237,7 @@ namespace web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
             IApplicationBuilder app,
-            IHostingEnvironment env,
+            //IHostingEnvironment env,
             ILoggerFactory loggerFactory,
             UserManager<Usuario> userManager,
             RoleManager<Perfil> roleManager,
@@ -243,14 +246,14 @@ namespace web
             //StartScheduler();
             app.UseCors("CorsPolicy");
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //    app.UseHsts();
+            //}
 
             app.UseResponseCompression();
             app.UseMvc();
