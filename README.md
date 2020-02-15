@@ -3,14 +3,10 @@ Projetos desenvolvidos para a DTI.
 # Backend
 O Backend foi desenvolvido em dotnet core 2.1. Para rodar o Backend é necessário a sdk do dotnet core 2.1 e o banco de dados Postgres 11 e criar a base de dados chamada 'portal_xpto' (sem as aspas). 
 
-Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: 
- dotnet ef database update
-Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando:
-
-Update-Database
-
+Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: dotnet ef database update
+Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando: update-database
 Feito isso, se voce estiver no visual studio é só apertar F5, caso esteja no linux rodar o seguinte comando:
- dotnet run
+dotnet run
 
 Minha idéia para a resolução do problema foi a seguinte:
 Eu preciso de uma Api para ser consumida em uma aplicação frontend. O problema então me descreveu "O ABCData é feito em Java, tem um banco de dados SQL Server"(sic), porém eu não possuo essa Api então a minha ideia para resolver o problema foi simular esses dados vindo da Api através de um mapeamento qualquer que eu criei com as entidades que poderiam ser recuperadas da Api escrita em Java e em cima disso eu populei uma base de dados em um Schema do banco diferente, para não misturar com os dados da minha "real" aplicação e assim simular uma Api externa. O Schema criado para a simulação é chamado 'xpto'.
