@@ -1,5 +1,5 @@
 # DTI
-Projetos desenvolvidos para a DTI.
+Projetos desenvolvidos como parte do processo seletivo da DTI.
 # Backend
 O Backend foi desenvolvido em dotnet core 2.1. Para rodar o Backend é necessário a sdk do dotnet core 2.1 e o banco de dados Postgres 11 e criar a base de dados chamada 'portal_xpto' (sem as aspas). 
 
