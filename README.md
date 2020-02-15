@@ -4,7 +4,10 @@ Projetos desenvolvidos para a DTI.
 O Backend foi desenvolvido em dotnet core 2.1. Para rodar o Backend é necessário a sdk do dotnet core 2.1 e o banco de dados Postgres 11 e criar a base de dados chamada 'portal_xpto' (sem as aspas). 
 
 Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: dotnet ef database update
+
+
 Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando: update-database
+
 Feito isso, se voce estiver no visual studio é só apertar F5, caso esteja no linux rodar o seguinte comando:
 dotnet run
 
