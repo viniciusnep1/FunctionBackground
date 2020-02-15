@@ -31,8 +31,10 @@ Dessa forma, mesmo que a busca e os cálculos demorem muito tempo, não teremos 
 O frontend foi desenvolvido em React. Foram criadas duas aplicações e para roda-las é necessário instalar as dependencias nas duas aplicalções da seguinte forma:
 abrir um terminal na pasta de cada aplicação e executar o seguinte comando:
 <b> npm install </b>
+
 Feita as instalações das depencias é só exetar os dois projetos usando o mesmo comando:
 <b> npm start </b>
+
 Os dois sistemas são independentes onde um sistema é um 'Portal' que servirá como base para qualquer outra aplicação desenvolvida, independente de linguagem. Para rodar uma aplicação "dentro da outra" eu usei uma biblioteca do react chamada Iframe.
 
 A aplicação que está dentro do 'Portal' possui um gráfico que é alimentado pelos dados vindos do servidor (backend), sendo assim para que o usuário consiga ver os dados é necessário que a aplicação servidora (O backend) esteja rodando e com dados os respectivos bancos alimentados. Caso contrario não aparecerá dado algum no gráfico. 
