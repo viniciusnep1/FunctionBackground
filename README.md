@@ -6,7 +6,9 @@ O Backend foi desenvolvido em dotnet core 2.1. Para rodar o Backend é necessár
 Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: 
  dotnet ef database update
 Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando:
-# Update-Database
+
+Update-Database
+
 Feito isso, se voce estiver no visual studio é só apertar F5, caso esteja no linux rodar o seguinte comando:
  dotnet run
 
