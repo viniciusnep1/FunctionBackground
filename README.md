@@ -11,7 +11,7 @@ Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o c
 Feito isso, se voce estiver no visual studio é só apertar F5, caso esteja no linux rodar o seguinte comando:
 dotnet run
 
-Minha idéia para a resolução do problema foi a seguinte:
+Minha ideia para a resolução do problema foi a seguinte:
 Eu preciso de uma Api para ser consumida em uma aplicação frontend. O problema então me descreveu "O ABCData é feito em Java, tem um banco de dados SQL Server"(sic), porém eu não possuo essa Api então a minha ideia para resolver o problema foi simular esses dados vindo da Api através de um mapeamento qualquer que eu criei com as entidades que poderiam ser recuperadas da Api escrita em Java e em cima disso eu populei uma base de dados em um Schema do banco diferente, para não misturar com os dados da minha "real" aplicação e assim simular uma Api externa. O Schema criado para a simulação é chamado 'xpto'.
 
 Dessa forma com a necessidade de recuperar e tratar esses dados da suposta Api em Java, a minha idéia para a aplicação foi a seguinte:
