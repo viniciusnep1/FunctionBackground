@@ -7,7 +7,6 @@ using services.repositories;
 using services.services.calculos.viewModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -77,7 +76,7 @@ namespace services.services.calc
             return await Task.FromResult(xptoEntity);
         }
 
-        public async Task<SumViewModel> FillCharts()
+        public async Task<List<SumViewModel>> FillCharts()
         {
             var xptoEntity = await repository.GetAll().FirstOrDefaultAsync();
 
@@ -94,8 +93,7 @@ namespace services.services.calc
 
                 list.Add(model);
             }
-
-            return await Task.FromResult(list.FirstOrDefault());
+            return await Task.FromResult(list);
         }
 
         public static object GetPropValue(object src, string propName)
