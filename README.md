@@ -3,13 +3,14 @@ Projetos desenvolvidos para a DTI.
 # Backend
 O Backend foi desenvolvido em dotnet core 2.1. Para rodar o Backend é necessário a sdk do dotnet core 2.1 e o banco de dados Postgres 11 e criar a base de dados chamada 'portal_xpto' (sem as aspas). 
 
-Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: dotnet ef database update
+Ao abrir o projeto é necessário gerar o banco de dados, caso o sistema operacional seja o linux, rodar com o comando: 
+<b> dotnet ef database update </b>
 
-
-Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando: update-database
+Caso seja o Visual Studio no Windows abrir o Package Manager Console e rodar o comando:
+<b> update-database </b>
 
 Feito isso, se voce estiver no visual studio é só apertar F5, caso esteja no linux rodar o seguinte comando:
-dotnet run
+<b> dotnet run </b>
 
 Minha ideia para a resolução do problema foi a seguinte:
 Eu preciso de uma Api para ser consumida em uma aplicação frontend. O problema então me descreveu "O ABCData é feito em Java, tem um banco de dados SQL Server"(sic), porém eu não possuo essa Api então a minha ideia para resolver o problema foi simular esses dados vindo da Api através de um mapeamento qualquer que eu criei com as entidades que poderiam ser recuperadas da Api escrita em Java e em cima disso eu populei uma base de dados em um Schema do banco diferente, para não misturar com os dados da minha "real" aplicação e assim simular uma Api externa. O Schema criado para a simulação é chamado 'xpto'.
@@ -31,7 +32,7 @@ O frontend foi desenvolvido em React. Foram criadas duas aplicações e para rod
 abrir um terminal na pasta de cada aplicação e executar o seguinte comando:
 <b> npm install </b>
 Feita as instalações das depencias é só exetar os dois projetos usando o mesmo comando:
- npm start
+<b> npm start </b>
 Os dois sistemas são independentes onde um sistema é um 'Portal' que servirá como base para qualquer outra aplicação desenvolvida, independente de linguagem. Para rodar uma aplicação "dentro da outra" eu usei uma biblioteca do react chamada Iframe.
 
 A aplicação que está dentro do 'Portal' possui um gráfico que é alimentado pelos dados vindos do servidor (backend), sendo assim para que o usuário consiga ver os dados é necessário que a aplicação servidora (O backend) esteja rodando e com dados os respectivos bancos alimentados. Caso contrario não aparecerá dado algum no gráfico. 
